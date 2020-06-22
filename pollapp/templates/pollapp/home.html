@@ -1,0 +1,25 @@
+{% extends 'pollapp/base.html' %}
+
+
+{% block content %}
+
+<div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {% for m in messages %}
+    <strong>{{m}}</strong>
+    {% endfor %}
+  </div>
+
+<div class="container">
+    {% for questions in question %}
+    <div class="card mt-5">
+        <div class="card-body">
+            <h3>{{questions}}</h3>
+            <a href="{% url 'vote' questions.id %}" class = "btn btn-primary">Vote Now</a>
+            <a href="{% url 'result' questions.id %}" class = "btn btn-secondary">See Results</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

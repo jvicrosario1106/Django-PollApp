@@ -1,0 +1,23 @@
+{% extends 'pollapp/base.html' %}
+
+
+{% block content %}
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-body">
+            <h3>{{question}}</h3>
+            <form method="post">
+                {% for q in question.choice_set.all %}
+                {% csrf_token %}
+                <input type="radio" name="choice" id="q{{forloop.counter}}" value= "{{q.id}}">
+                <label for="q{{forloop.counter}}">{{q.choices}}</label>
+                <br>
+                {% endfor %}
+                <button type="submit" class= 'btn btn-success text-white'>Submit</button>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

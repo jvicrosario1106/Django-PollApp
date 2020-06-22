@@ -1,0 +1,19 @@
+{% extends 'pollapp/base.html' %}
+
+
+{% block content %}
+<div class="container">
+    
+    <div class="card mt-5">
+        <div class="card-body">
+           <h3>Results in Question : {{question}}</h3>
+           {% for results in question.choice_set.all %}
+           <p>{{results.choices}} = {{results.votes}} vote{{results.votes|pluralize}}</p>
+           {% endfor %}
+           <a href="{% url 'home' %}" class = 'btn btn-info'>Vote Again</a>
+        </div>
+    </div>
+  
+</div>
+
+{% endblock %}
