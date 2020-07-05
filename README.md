@@ -11,4 +11,4 @@ git clone https://github.com/jvicrosario1106/Django-PollApp.git
 ```pipenv install django```
 
 ## Run it and get the local server
-```python manage.py runserver``
+```python manage.py runserver```
